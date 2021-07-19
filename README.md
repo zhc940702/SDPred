@@ -46,7 +46,7 @@ up_ten_fold.py: This function can test the predictive performance of our model u
 
 
 # Train and test folds
-python Ten_Fold_test.py --rawpath /Your path --epochs Your number --batch_size Your number
+python up_ten_fold.py --rawpath /Your path --epochs Your number --batch_size Your number
 
 rawdata_dir: All input data should be placed in the folder of this path. (The data folder we uploaded contains all the required data.)
 
@@ -59,7 +59,7 @@ All files of Data and Code should be stored in the same folder to run the model.
 Example:
 
 ```bash
-python cross_validation.py --rawdata_dir /data --epochs 100 --batch_size 256
+python up_ten_fold.py --rawdata_dir /data --epochs 100 --batch_size 256
 ```
 # Contact 
 If you have any questions or suggestions with the code, please let us know. Contact Haochen Zhao at zhaohaochen@csu.edu.cn
