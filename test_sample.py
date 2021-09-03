@@ -13,7 +13,7 @@ from copy import deepcopy
 from datetime import datetime
 import torch.nn.functional as F
 from torch.autograd import Variable
-from Network.network_four import ConvNCF
+from network_four import ConvNCF
 
 from sklearn.metrics.pairwise import cosine_similarity
 
