@@ -150,14 +150,13 @@ def test_data(args):
     testset = torch.utils.data.TensorDataset(torch.FloatTensor(drug_test), torch.FloatTensor(side_test))
     _test = torch.utils.data.DataLoader(testset, batch_size=args.test_batch_size, shuffle=False, pin_memory=True)
     torch.backends.cudnn.benchmark = True
-    os.environ["CUDA_VISIBLE_DEVICES"] = "3"
     use_cuda = False
     if torch.cuda.is_available():
         use_cuda = True
     device = torch.device("cuda" if use_cuda else "cpu")
     model = ConvNCF(7570, 3976, args.embed_dim, args.batch_size).to(device)
     model_file = args.rawpath + '/' + 'my_model.dat'
-    cheeckpoint = torch.load(model_file)
+    cheeckpoint = torch.load(model_file, map_location = device)
     model.load_state_dict(cheeckpoint['model'])
     model.eval()
     pred1 = []
@@ -209,8 +208,7 @@ def main():
                         metavar = 'N', help = 'input batch size for testing')
     parser.add_argument('--dataset', type = str, default = 'yelp',
                         metavar = 'STRING', help = 'dataset')
-    parser.add_argument('--rawpath', type=str, default='D:\~博士\All_code\Four\data',
-    # parser.add_argument('--rawpath', type=str, default='/home/zhaohc/four/data',
+    parser.add_argument('--rawpath', type=str, default='/data',
                         metavar='STRING', help='rawpath')
     args = parser.parse_args()
 
