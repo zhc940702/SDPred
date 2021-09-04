@@ -208,7 +208,7 @@ def main():
                         metavar = 'N', help = 'input batch size for testing')
     parser.add_argument('--dataset', type = str, default = 'yelp',
                         metavar = 'STRING', help = 'dataset')
-    parser.add_argument('--rawpath', type=str, default='\data',
+    parser.add_argument('--rawpath', type=str, default='/data',
                         metavar='STRING', help='rawpath')
     args = parser.parse_args()
 
